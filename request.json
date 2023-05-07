@@ -1,0 +1,201 @@
+{
+  "name": "P10",
+  "hybrid_pipeline_software_specs": [{
+    "name": "autoai-ts_rt22.2-py3.10"
+  }],
+  "data_preprocessing": [{
+    "input": {
+      "columns": 2,
+      "rows": 500
+    },
+    "output": {
+      "columns": 2,
+      "rows": 500
+    },
+    "props": {
+      "duplicated_rows_count": 0,
+      "outliers_count": null
+    },
+    "stage": "cleansing"
+  }, {
+    "input": {
+      "columns": 2,
+      "rows": 500
+    },
+    "output": {
+      "columns": 2,
+      "rows": 500
+    },
+    "props": {
+      "type": "truncate"
+    },
+    "stage": "sampling"
+  }],
+  "label_column": "",
+  "pipeline": {
+    "id": "39f896c7-f7dc-4a26-b828-1ec8d49ce205"
+  },
+  "project_id": "fad1c126-4d77-42ba-8295-11b93ed464a6",
+  "training_id": "ea5f2e8b-bb21-4fe5-8de2-caddc6040f67",
+  "metrics": [{
+    "context": {
+      "intermediate_model": {
+        "composition_steps": ["FlattenIterative"],
+        "duration": 2,
+        "location": {
+          "model": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/data/autoai-ts/after_final_pipelines_generation/P10/model.gzip",
+          "pipeline": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/data/autoai-ts/after_final_pipelines_generation/P10/pipeline.json",
+          "pipeline_model": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/data/autoai-ts/after_final_pipelines_generation/P10/pipeline-model.json"
+        },
+        "name": "P10",
+        "notebook_location": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/data/autoai-ts/after_final_pipelines_generation/P10/v1/notebook.ipynb",
+        "pipeline_nodes": ["FlattenIterative", "BATS"],
+        "process": "after_final_pipelines_generation",
+        "schema_location": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/data/autoai-ts/after_final_pipelines_generation/P10/schema.json"
+      },
+      "phase": "after_final_pipelines_generation",
+      "prediction_type": "forecasting",
+      "timeseries": {
+        "allocation": 1.0,
+        "allocation_rows": 500,
+        "autoai_ts_model_type": "non-exogenous",
+        "daub_status_location": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/data/autoai-ts/after_final_pipelines_generation/P10/daub_status.json",
+        "estimator": "SmallTimeSeriesDataDAUBPipeline",
+        "feature_columns": ["Temperature"],
+        "gap_len": 0,
+        "id": "P10",
+        "input": {
+          "columns": 2,
+          "duplicated_rows_count": 0,
+          "rows": 500
+        },
+        "lookback_window": 5,
+        "num_backtest": 4,
+        "output": {
+          "columns": 2,
+          "duplicated_rows_count": 0,
+          "rows": 500
+        },
+        "phase": "after_final_pipelines_generation",
+        "pipeline_name": "Bats",
+        "prediction_horizon": 1,
+        "target_columns": ["Temperature"],
+        "timestamp_column": "Revenue",
+        "winners": ["P10", "P4", "P7"]
+      }
+    },
+    "timestamp": "2023-05-06T07:50:53.000Z",
+    "ts_metrics": {
+      "training": {
+        "neg_symmetric_mean_absolute_percentage_error": -2.9739358988651947
+      },
+      "holdout": {
+        "avg_r2": 0.4741406461404817,
+        "neg_avg_mean_absolute_error": -1.2432515238884772,
+        "neg_avg_root_mean_squared_error": -1.625455772428444,
+        "neg_avg_symmetric_mean_absolute_percentage_error": -3.147133627385515,
+        "neg_mean_absolute_error": -1.2432515238884772,
+        "neg_root_mean_squared_error": -1.625455772428444,
+        "neg_symmetric_mean_absolute_percentage_error": -3.147133627385515,
+        "r2": 0.4741406461404817
+      },
+      "backtest": {
+        "avg": {
+          "avg_r2": 0.1366567253417132,
+          "neg_avg_mean_absolute_error": -0.9840856400313192,
+          "neg_avg_root_mean_squared_error": -1.2568624877023709,
+          "neg_avg_symmetric_mean_absolute_percentage_error": -3.141409477770422,
+          "neg_mean_absolute_error": -0.9840856400313192,
+          "neg_root_mean_squared_error": -1.2568624877023709,
+          "neg_symmetric_mean_absolute_percentage_error": -3.141409477770422,
+          "r2": 0.1366567253417132
+        },
+        "iterations": [{
+          "neg_mean_absolute_error": -1.0013449977949471,
+          "neg_root_mean_squared_error": -1.381196764346676,
+          "neg_symmetric_mean_absolute_percentage_error": -3.4734063514187485,
+          "r2": 0.15805464763733745
+        }, {
+          "neg_mean_absolute_error": -0.8773689376276581,
+          "neg_root_mean_squared_error": -1.1260319218803803,
+          "neg_symmetric_mean_absolute_percentage_error": -2.8673822953211396,
+          "r2": -0.15041660671250412
+        }, {
+          "neg_mean_absolute_error": -1.0542856553493045,
+          "neg_root_mean_squared_error": -1.227118577738673,
+          "neg_symmetric_mean_absolute_percentage_error": -3.3266947685055377,
+          "r2": 0.3078957981137376
+        }, {
+          "neg_mean_absolute_error": -1.0033429693533666,
+          "neg_root_mean_squared_error": -1.2931026868437547,
+          "neg_symmetric_mean_absolute_percentage_error": -2.898154495836261,
+          "r2": 0.23109306232828186
+        }]
+      }
+    }
+  }],
+  "type": "wml-hybrid_0.1",
+  "schemas": {
+    "input": [{
+      "fields": [{
+        "metadata": {
+          "modeling_role": "both"
+        },
+        "name": "Temperature",
+        "type": "double"
+      }],
+      "id": "auto_ai_ts_input_schema"
+    }],
+    "output": []
+  },
+  "content_location": {
+    "connection": {
+
+    },
+    "contents": [{
+      "content_format": "pipeline-node",
+      "file_name": "P10_autoai-ts.zip",
+      "location": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/assets/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67_P10_after_final_pipelines_generation/resources/wml_model/P10_autoai-ts.zip",
+      "pipeline_node_id": "autoai-ts"
+    }, {
+      "content_format": "native",
+      "file_name": "pipeline_model.json",
+      "location": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/assets/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67_P10_after_final_pipelines_generation/resources/wml_model/pipeline_model.json"
+    }],
+    "location": {
+      "path": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data",
+      "notebooks_path": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/notebooks",
+      "training": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67",
+      "training_status": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/training-status.json",
+      "assets_path": "auto_ml/2282094c-c85b-4a63-9e4c-3443eb637a7b/wml_data/ea5f2e8b-bb21-4fe5-8de2-caddc6040f67/assets"
+    },
+    "type": "container"
+  },
+  "training_data_references": [{
+    "connection": {
+
+    },
+    "id": "icrcreamshop-dataset.csv",
+    "location": {
+      "href": "/v2/assets/ad5e88d9-3543-456d-aae6-cb847ff18efa?project_id=fad1c126-4d77-42ba-8295-11b93ed464a6",
+      "id": "ad5e88d9-3543-456d-aae6-cb847ff18efa",
+      "userfs": "false",
+      "project_id": "fad1c126-4d77-42ba-8295-11b93ed464a6"
+    },
+    "schema": {
+      "fields": [{
+        "metadata": {
+          "modeling_role": "both"
+        },
+        "name": "Temperature",
+        "type": "double"
+      }],
+      "id": "auto_ai_ts_input_schema"
+    },
+    "type": "data_asset"
+  }],
+  "software_spec": {
+    "name": "hybrid_0.1"
+  },
+  "test_data_references": []
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icecream Temprature Predection</title>
+    
+</head>
+<body>
+    <h1 style="color: blue;">>>Temprature Prediction with AI-Model </h1>
+<form  action="{{url_for('predict')}}" method="post">
+    
+<input type="text"    name="Temprature"  placeholder="Input your Temprature"></input>  
+<button type="submit">Predict</button>
+</form>
+<h3 style="color: red;"><b>{{prediction_text}}</b></h3>
+<p> AI-Model Desgined By Ihtesham Jahangir </p>
+<p style="size: 8px;">Copyright@2023 Alphanetwork</p>
+
+</body>
+</html>
